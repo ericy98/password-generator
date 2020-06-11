@@ -12,6 +12,8 @@ function writePassword() {
   numericCharacters();
   lowercaseCharacters();
   uppercaseCharacters();
+  
+  //if user doesn't choose at least one parameter, error message
   if (specialConfirm === false && numericConfirm === false && lowercaseConfirm === false && uppercaseConfirm === false) {
     alert("Error no password parameters selected. Please select at least one.");
     return writePassword();
@@ -104,18 +106,53 @@ function uppercaseCharacters() {
   console.log("Uppercase characters " + uppercaseConfirm);
 };
 
+
 function generatePassword() {
+  // lengthPrompt = "";
+  // for (var i = 0; i < lengthPrompt.length; i++) {
+  //   lengthPrompt = lengthPrompt + i;
+  // }
+  // console.log(i);
+  //lengthPrompt = parseInt(lengthPrompt);
+
   if (specialConfirm === true) {
-    console.log("@#@");
+    specialSet = "!#$%&'()*+,-./:;<=>?@][^_`{|}~";
+    console.log(specialSet);
   } else{
-    console.log("none here");
+    specialSet = null;
+    console.log("specialSet " + specialSet);
   }
+  
+  if (numericConfirm === true) {
+    numericSet = "0123456789";
+    console.log(numericSet);
+  } else{
+    numericSet= null;
+    console.log("numericSet " + numericSet);
+  }
+
+  if (lowercaseConfirm === true) {
+    lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
+    console.log(lowercaseSet)
+  } else {
+    lowercaseSet = null;
+    console.log("lowercaseSet " + lowercaseSet);
+  }
+
+  if (uppercaseConfirm === true) {
+    uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    console.log(uppercaseSet);
+  } else {
+    uppercaseSet = null;
+    console.log("uppercaseSet " + uppercaseSet);
+  }
+
 }  
   
-  //for (var i = 0; i < lengthPrompt.length; i++) {
-    //var num = Math.floor(Math.random() * lengthPrompt.length) + 1;
-    //console.log(num);
- // }
+var specialSet;
+var numericSet;
+var lowercaseSet;
+var uppercaseSet;
 
 
 
