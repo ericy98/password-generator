@@ -4,14 +4,18 @@ window.alert("Click the 'Generate Password' button to begin")
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");;
+
 // Write password to the #password input
 function writePassword() {
-  debugger;
   passwordLength();
   specialCharacters();
   numericCharacters();
   lowercaseCharacters();
   uppercaseCharacters();
+  if (specialConfirm === false && numericConfirm === false && lowercaseConfirm === false && uppercaseConfirm === false) {
+    alert("Error no password parameters selected. Please select at least one.");
+    return writePassword();
+  }
 
   var password = generatePassword();
   
@@ -27,7 +31,8 @@ function writePassword() {
 
 };
 
-var passwordLength = function() {
+var lengthPrompt;
+function passwordLength() {
   var length = "";
   
   // if nothing is written in
@@ -43,11 +48,13 @@ var passwordLength = function() {
         return passwordLength();
     }
   }
-  console.log("password length is " + length)
+  console.log("password length is " + lengthPrompt)
 };
 
-var specialCharacters = function() {
-  var specialConfirm = window.confirm(" Would you like to have special characters in your password?");
+// var specialCharacters 
+var specialConfirm;
+function specialCharacters() {
+  specialConfirm = window.confirm(" Would you like to have special characters in your password?");
   if (specialConfirm) {
     window.alert("Special characters have been added to your password.");
   }
@@ -56,11 +63,12 @@ var specialCharacters = function() {
 
   }
     console.log("Special characters " + specialConfirm);
-    return specialConfirm;
-};
+}
 
-var numericCharacters = function() {
-  var numericConfirm = window.confirm("Would you like to have numbers in your password?");
+// var numericCharacters
+var numericConfirm;
+function numericCharacters(){
+  numericConfirm = window.confirm("Would you like to have numbers in your password?");
   if (numericConfirm) {
     window.alert("Numbers have been added to your password.");
   } 
@@ -68,11 +76,12 @@ var numericCharacters = function() {
     window.alert("Numbers have NOT been added to your password.");
   }
   console.log("Numeric characters " + numericConfirm);
-  return numericConfirm;
 };
 
-var lowercaseCharacters = function() {
-  var lowercaseConfirm = window.confirm("Would you like to have lowercase letters in your password?");
+// var lowercaseCharacters
+var lowercaseConfirm;
+function lowercaseCharacters() {
+  lowercaseConfirm = window.confirm("Would you like to have lowercase letters in your password?");
   if (lowercaseConfirm) {
     window.alert("Lowercase letters have been added to your password.");
   }
@@ -80,11 +89,12 @@ var lowercaseCharacters = function() {
     window.alert("Lowercase letters have NOT been added to your password.");
   }
   console.log("Lowercase characters " + lowercaseConfirm);
-  return lowercaseConfirm;
-}
+};
 
-var uppercaseCharacters = function() {
-  var uppercaseConfirm = window.confirm("Would you like to have uppercase letters in your password?");
+// var uppercaseCharacters
+var uppercaseConfirm;
+function uppercaseCharacters() { 
+  uppercaseConfirm = window.confirm("Would you like to have uppercase letters in your password?");
   if (uppercaseConfirm) {
     window.alert("Uppercase letters have been added to your password.")
   }
@@ -92,15 +102,22 @@ var uppercaseCharacters = function() {
     window.alert("Uppercase letters have NOT been added to your password.")
   }
   console.log("Uppercase characters " + uppercaseConfirm);
-  return uppercaseConfirm;
-}
-
- function generatePassword() {
-   for (var i = 0; i < passwordLength.length; i++) {
-     password = password + passwordLength;
-     console.log();
-   }
 };
+
+function generatePassword() {
+  if (specialConfirm === true) {
+    console.log("@#@");
+  } else{
+    console.log("none here");
+  }
+}  
+  
+  //for (var i = 0; i < lengthPrompt.length; i++) {
+    //var num = Math.floor(Math.random() * lengthPrompt.length) + 1;
+    //console.log(num);
+ // }
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
