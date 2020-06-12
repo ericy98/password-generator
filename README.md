@@ -12,4 +12,4 @@ A website that randomly generates passwords based off user input.
 https://ericy98.github.io/password-generator/
 
 #Contribution 
-Made with ❤️ by Eric Yarbrough
+Made with ❤️  by Eric Yarbrough
