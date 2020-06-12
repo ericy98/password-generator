@@ -108,51 +108,40 @@ function uppercaseCharacters() {
 
 
 function generatePassword() {
-  // lengthPrompt = "";
-  // for (var i = 0; i < lengthPrompt.length; i++) {
-  //   lengthPrompt = lengthPrompt + i;
-  // }
-  // console.log(i);
-  //lengthPrompt = parseInt(lengthPrompt);
+  var retVal = "";
+  var passwordSet ="";
+    if (specialConfirm === true) {
+      passwordSet += specialSet
+      // console.log(specialSet);
+    } 
+    
+    if (numericConfirm === true) {
+      passwordSet += numericSet; 
+      //console.log(numericSet);
+    } 
 
-  if (specialConfirm === true) {
-    specialSet = "!#$%&'()*+,-./:;<=>?@][^_`{|}~";
-    console.log(specialSet);
-  } else{
-    specialSet = null;
-    console.log("specialSet " + specialSet);
-  }
+    if (lowercaseConfirm === true) {
+      passwordSet += lowercaseSet;
+      //console.log(lowercaseSet)
+    } 
+
+    if (uppercaseConfirm === true) {
+      passwordSet += uppercaseSet;
+      //console.log(uppercaseSet);
+    } 
+    console.log(passwordSet)
+    for (var i =0; i < lengthPrompt; i++){
+      retVal += passwordSet.charAt(Math.floor(Math.random() * passwordSet.length));
+      console.log(retVal);
+    }
+
+  return retVal;
+};  
   
-  if (numericConfirm === true) {
-    numericSet = "0123456789";
-    console.log(numericSet);
-  } else{
-    numericSet= null;
-    console.log("numericSet " + numericSet);
-  }
-
-  if (lowercaseConfirm === true) {
-    lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
-    console.log(lowercaseSet)
-  } else {
-    lowercaseSet = null;
-    console.log("lowercaseSet " + lowercaseSet);
-  }
-
-  if (uppercaseConfirm === true) {
-    uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    console.log(uppercaseSet);
-  } else {
-    uppercaseSet = null;
-    console.log("uppercaseSet " + uppercaseSet);
-  }
-
-}  
-  
-var specialSet;
-var numericSet;
-var lowercaseSet;
-var uppercaseSet;
+var specialSet = "!#$%&'()*+,-./:;<=>?@][^_`{|}~";
+var numericSet = "0123456789";
+var lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
+var uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 
